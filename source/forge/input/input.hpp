@@ -114,6 +114,18 @@ public:
         modifier_set(bool(__mod == KMOD_NONE), modifier::NONE);
     }
 
+    /** @brief Checks for CMD-W or CTRL-W to close the window. */
+    bool window_close() const
+    {
+#if defined(FORGE_OS_MACOS)
+        return (down(keycode::W) && modifier(modifier::GUI));
+#elif defined(FORGE_OS_WINDOWS)
+        return (down(keycode::W) && modifier(modifier::CTRL));
+#else
+        return false;
+#endif
+    }
+
     keyboard(const keyboard&) = delete;
     keyboard(keyboard&&)      = delete;
     keyboard& operator=(const keyboard&) = delete;

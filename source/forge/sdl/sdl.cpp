@@ -29,7 +29,7 @@ window* create_window(const std::string& title, std::size_t width,
                       std::size_t height, bool fullscreen, bool resizable)
 {
     auto          pos   = SDL_WINDOWPOS_CENTERED;
-    std::uint32_t flags = (SDL_WINDOW_VULKAN | SDL_WINDOW_SHOWN);
+    std::uint32_t flags = (SDL_WINDOW_VULKAN); // | SDL_WINDOW_SHOWN);
     if (fullscreen) flags |= SDL_WINDOW_FULLSCREEN;
     if (resizable) flags |= SDL_WINDOW_RESIZABLE;
     auto __title = title.c_str();

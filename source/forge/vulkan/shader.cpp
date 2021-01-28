@@ -5,6 +5,7 @@ namespace forge
 {
 namespace vulkan
 {
+shaderc::Compiler          shader::spirv = shaderc::Compiler();
 vk::ShaderModuleCreateInfo shader::create(const std::string& shader, kind kind,
                                           std::vector<std::uint32_t>& bytecode)
 {
