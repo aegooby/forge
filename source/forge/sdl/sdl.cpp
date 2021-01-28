@@ -1,6 +1,7 @@
 
 #include "sdl.hpp"
 
+#include <cassert>
 #include <string>
 #include <vector>
 
@@ -18,7 +19,7 @@ error::~error() = default;
 
 void start()
 {
-    if (SDL_Init(SDL_INIT_EVERYTHING)) throw error("Failed to initialize SDL");
+    if (SDL_Init(SDL_INIT_VIDEO)) throw error("Failed to initialize SDL");
 }
 void stop()
 {
@@ -29,7 +30,7 @@ window* create_window(const std::string& title, std::size_t width,
                       std::size_t height, bool fullscreen, bool resizable)
 {
     auto          pos   = SDL_WINDOWPOS_CENTERED;
-    std::uint32_t flags = (SDL_WINDOW_VULKAN); // | SDL_WINDOW_SHOWN);
+    std::uint32_t flags = (SDL_WINDOW_VULKAN | SDL_WINDOW_SHOWN);
     if (fullscreen) flags |= SDL_WINDOW_FULLSCREEN;
     if (resizable) flags |= SDL_WINDOW_RESIZABLE;
     auto __title = title.c_str();
@@ -68,17 +69,17 @@ namespace vulkan
 {
 std::vector<const char*> extensions(window* handle)
 {
-    auto         result = std::vector<const char*>();
     unsigned int count;
     if (!SDL_Vulkan_GetInstanceExtensions(handle, &count, nullptr))
         throw std::runtime_error("Failed to get Vulkan extension count");
-    auto exts = std::vector<const char*>(count);
+    auto result = std::vector<const char*>(count);
     if (!SDL_Vulkan_GetInstanceExtensions(handle, &count, result.data()))
         throw std::runtime_error("Failed to get Vulkan extensions");
     return result;
 }
 surface create_surface(window* handle, instance instance)
 {
+    assert(instance);
     VkSurfaceKHR result = nullptr;
     if (!SDL_Vulkan_CreateSurface(handle, instance, &result))
         throw std::runtime_error("Failed to create Vulkan surface");
