@@ -27,7 +27,7 @@ public:
 
 void    start();
 void    stop();
-window* create_window(const std::string&, std::size_t, std::size_t, bool);
+window* create_window(const std::string&, std::size_t, std::size_t, bool, bool);
 void    destroy_window(window*);
 
 using event = SDL_Event;
@@ -54,11 +54,11 @@ keymod modifier_state();
 namespace vulkan
 {
 std::vector<const char*> extensions(window*);
-using surface = VkSurfaceKHR;
+using surface  = VkSurfaceKHR;
 using instance = VkInstance;
-surface create_surface(window*, instance);
+surface                                 create_surface(window*, instance);
 std::pair<std::uint32_t, std::uint32_t> extent(window*);
-}
+} // namespace vulkan
 
 } // namespace sdl
 } // namespace forge

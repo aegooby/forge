@@ -14,7 +14,7 @@ void window::start(std::size_t width, std::size_t height, bool fullscreen)
     this->height     = height;
     this->fullscreen = fullscreen;
 
-    handle = sdl::create_window(title, width, height, fullscreen);
+    handle = sdl::create_window(title, width, height, fullscreen, resizable);
     __open = true;
 }
 void window::stop()
@@ -23,7 +23,7 @@ void window::stop()
     sdl::destroy_window(handle);
     handle = nullptr;
 }
-const bool window::open() const
+bool window::open() const
 {
     return __open;
 }

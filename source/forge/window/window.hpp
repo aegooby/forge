@@ -11,10 +11,6 @@ namespace forge
 class window
 {
 private:
-    const bool resizable  = false;
-    bool       fullscreen = false;
-    bool       __open     = false;
-
     class keyboard& keyboard;
     class mouse&    mouse;
 
@@ -24,6 +20,12 @@ public:
 
     const std::string title = std::string();
 
+private:
+    const bool resizable  = false;
+    bool       fullscreen = false;
+    bool       __open     = false;
+
+public:
     sdl::window* handle = nullptr;
 
     window(class keyboard& keyboard, class mouse& mouse,
@@ -32,7 +34,7 @@ public:
     void start(std::size_t = 1366, std::size_t = 768, bool = false);
     void stop();
 
-    const bool open() const;
+    bool open() const;
 
     void update();
 
