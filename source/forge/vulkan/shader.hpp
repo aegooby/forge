@@ -1,7 +1,7 @@
 
 #pragma once
 #include "../__common.hpp"
-#include "renderer.hpp"
+#include "rhi.hpp"
 
 #include <shaderc/shaderc.hpp>
 
