@@ -59,10 +59,13 @@
 
 #define FORGE_EVAL_DISCARD(statement) ((void)statement)
 
+#include <cstddef>
 #include <cstdint>
 
 namespace forge
 {
+static constexpr const char* __name__    = "forge";
+static constexpr const char* __version__ = "1.0.0";
 #if defined(FORGE_DEBUG)
 static constexpr bool __debug__ = true;
 #else

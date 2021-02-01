@@ -3,8 +3,7 @@
 
 #include "../__common.hpp"
 #include "../math.hpp"
-
-#include <vulkan/vulkan.hpp>
+#include "common.hpp"
 
 namespace forge
 {

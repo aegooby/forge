@@ -1,9 +1,8 @@
 
 #pragma once
 #include "../__common.hpp"
+#include "common.hpp"
 #include "rhi.hpp"
-
-#include <shaderc/shaderc.hpp>
 
 namespace forge
 {
