@@ -9,6 +9,8 @@ namespace forge
 {
 namespace vulkan
 {
+namespace math
+{
 struct vertex
 {
     vector_2 position;
@@ -45,5 +47,6 @@ struct vertex
         return result;
     }
 };
+} // namespace math
 } // namespace vulkan
 } // namespace forge

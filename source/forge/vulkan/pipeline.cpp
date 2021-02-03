@@ -43,8 +43,8 @@ void pipeline::start()
     stage_infos.push_back(v_stage_info);
     stage_infos.push_back(f_stage_info);
 
-    auto binding_desc = vertex::binding_desc();
-    auto attr_desc    = vertex::attr_desc();
+    auto binding_desc = math::vertex::binding_desc();
+    auto attr_desc    = math::vertex::attr_desc();
     auto v_input_info = vk::PipelineVertexInputStateCreateInfo();
     v_input_info.setVertexBindingDescriptionCount(1);
     v_input_info.setPVertexBindingDescriptions(&binding_desc);

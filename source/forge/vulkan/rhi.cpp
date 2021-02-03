@@ -14,7 +14,7 @@ void rhi::start()
     render.extent.update(window);
     render.start();
     pipeline.start();
-    buffer.start();
+    vertex.start();
     command.start();
 }
 void rhi::draw()

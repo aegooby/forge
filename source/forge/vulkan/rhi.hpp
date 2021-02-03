@@ -21,12 +21,12 @@ private:
     class window& window;
 
 protected:
-    vulkan::context  context  = vulkan::context(window);
-    vulkan::device   device   = vulkan::device(context);
-    vulkan::render   render   = vulkan::render(context, device);
-    vulkan::pipeline pipeline = vulkan::pipeline(device, render);
-    vulkan::buffer   buffer   = vulkan::buffer(device);
-    vulkan::command command = vulkan::command(device, render, pipeline, buffer);
+    vulkan::context         context  = vulkan::context(window);
+    vulkan::device          device   = vulkan::device(context);
+    vulkan::render          render   = vulkan::render(context, device);
+    vulkan::pipeline        pipeline = vulkan::pipeline(device, render);
+    vulkan::buffers::vertex vertex   = vulkan::buffers::vertex(device);
+    vulkan::command command = vulkan::command(device, render, pipeline, vertex);
 
 public:
     rhi(class window&);

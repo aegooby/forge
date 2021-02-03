@@ -49,7 +49,7 @@ void command::start()
 
         buffers.at(i)->beginRenderPass(render_pass_info,
                                        vk::SubpassContents::eInline);
-        buffers.at(i)->bindVertexBuffers(0, *buffer.vertex, { 0 });
+        buffers.at(i)->bindVertexBuffers(0, *buffer.data, { 0 });
         buffers.at(i)->bindPipeline(vk::PipelineBindPoint::eGraphics,
                                     *pipeline.graphics);
         buffers.at(i)->draw(3, 1, 0, 0);
